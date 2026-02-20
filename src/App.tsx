@@ -106,22 +106,26 @@ ${mensaje}`;
     {
       name: "Kristina Berrios",
       role: "Lead Designer",
-      img: "https://picsum.photos/seed/kristina/400/400"
+      img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-4.png",
+      linkedin: "https://www.linkedin.com/in/kristina-berrios-esteller/"
     },
     {
       name: "Mehedi Hassan",
       role: "Marketing Specialist",
-      img: "https://picsum.photos/seed/mehedi/400/400"
+      img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-2.png",
+      linkedin: "https://www.linkedin.com/in/b%C3%A1rbara-hromin-ciccone-1728531a1/"
     },
     {
       name: "Carla Ríos",
       role: "Data Analytics",
-      img: "https://picsum.photos/seed/carla/400/400"
+      img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-1-2.png",
+      linkedin: "https://www.linkedin.com/in/carla-rios-0366b868/"
     },
     {
       name: "Diego Angola",
       role: "Web Developer",
-      img: "https://picsum.photos/seed/diego/400/400"
+      img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-8-2048x2048.png",
+      linkedin: "https://www.linkedin.com/in/diegodavidangola/"
     }
   ];
 
@@ -277,9 +281,14 @@ ${mensaje}`;
                     className="w-full h-full object-cover rounded-full border-2 border-gray-800 group-hover:border-[#00E5FF] transition-colors duration-300 grayscale group-hover:grayscale-0"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute bottom-0 right-0 bg-[#00E5FF] p-1.5 rounded-full text-black">
+                  <a 
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="absolute bottom-0 right-0 bg-[#00E5FF] p-1.5 rounded-full text-black hover:bg-white transition-colors"
+                  >
                     <Linkedin size={14} />
-                  </div>
+                  </a>
                 </div>
                 <h3 className="text-lg font-bold text-white">{member.name}</h3>
                 <p className="text-[#00E5FF] text-sm font-medium mb-4">{member.role}</p>
