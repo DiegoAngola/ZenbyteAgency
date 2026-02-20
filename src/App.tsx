@@ -113,9 +113,9 @@ export default function App() {
             {/* Right Actions - Ajustado con lg:space-x-6 y space-x-3 */}
             <div className="hidden md:flex items-center lg:space-x-6 space-x-3">
               <div className="flex space-x-3 lg:space-x-4">
-                <a href="#" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><Linkedin size={18} /></a>
-                <a href="#" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><MessageCircle size={18} /></a>
-                <a href="#" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><Instagram size={18} /></a>
+                <a href="https://www.linkedin.com/company/zenbyte-agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><Linkedin size={18} /></a>
+                <a href="https://wa.me/5491170670047" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><MessageCircle size={18} /></a>
+                <a href="https://www.instagram.com/zenbyte_agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><Instagram size={18} /></a>
               </div>
               <button className="px-4 lg:px-6 py-2 border border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF] hover:text-black transition-all duration-300 text-[10px] lg:text-sm font-bold uppercase tracking-wider whitespace-nowrap">
                 Chat with us
