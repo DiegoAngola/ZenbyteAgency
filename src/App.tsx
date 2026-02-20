@@ -25,8 +25,37 @@ import {
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    nombre: '',
+    apellido: '',
+    email: '',
+    telefono: '',
+    mensaje: ''
+  });
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { nombre, apellido, email, telefono, mensaje } = formData;
+    
+    const text = `Hola Zenbyte Agency, mi nombre es ${nombre} ${apellido}.
+Email: ${email}
+Teléfono: ${telefono}
+
+Mensaje:
+${mensaje}`;
+
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/5491170670047?text=${encodedText}`;
+    
+    window.open(whatsappUrl, '_blank');
+  };
 
   const services = [
     {
@@ -307,36 +336,76 @@ export default function App() {
             {/* White Box Form */}
             <div className="bg-white text-black p-8 md:p-10 shadow-2xl rounded-sm">
               <h3 className="text-2xl font-bold mb-6 font-display">Envíanos un mensaje</h3>
-              <form className="space-y-5">
+              <form onSubmit={handleWhatsAppSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Nombre</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" placeholder="Tu nombre" />
+                    <input 
+                      type="text" 
+                      name="nombre"
+                      value={formData.nombre}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
+                      placeholder="Tu nombre" 
+                    />
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Apellido</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" placeholder="Tu apellido" />
+                    <input 
+                      type="text" 
+                      name="apellido"
+                      value={formData.apellido}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
+                      placeholder="Tu apellido" 
+                    />
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Correo</label>
-                    <input type="email" className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" placeholder="nombre@ejemplo.com" />
+                    <input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
+                      placeholder="nombre@ejemplo.com" 
+                    />
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Teléfono</label>
-                    <input type="tel" className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" placeholder="(+54) ..." />
+                    <input 
+                      type="tel" 
+                      name="telefono"
+                      value={formData.telefono}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
+                      placeholder="(+54) ..." 
+                    />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Mensaje</label>
-                  <textarea rows={4} className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" placeholder="¿Cómo podemos ayudarte?"></textarea>
+                  <textarea 
+                    rows={4} 
+                    name="mensaje"
+                    value={formData.mensaje}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
+                    placeholder="¿Cómo podemos ayudarte?"
+                  ></textarea>
                 </div>
 
-                <button type="button" className="w-full bg-[#00E5FF] text-black font-bold uppercase tracking-widest py-4 hover:bg-[#00cce6] transition-colors">
-                  Enviar Mensaje
+                <button type="submit" className="w-full bg-[#00E5FF] text-black font-bold uppercase tracking-widest py-4 hover:bg-[#00cce6] transition-colors">
+                  Enviar Mensaje por WhatsApp
                 </button>
               </form>
             </div>
