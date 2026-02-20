@@ -24,6 +24,7 @@
     "react-dom": "^19.0.0",
     "react-i18next": "^16.5.4",
     "react-phone-input-2": "^2.15.1",
+    "react-router-dom": "^7.13.0",
     "vite": "^6.2.0"
   },
   "devDependencies": {

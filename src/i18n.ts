@@ -8,7 +8,7 @@ const resources = {
         home: "Home",
         team: "Team",
         services: "Servicios",
-        chat: "Chat with us"
+        chat: "Escríbenos "
       },
       hero: {
         title_part1: "Soluciones digitales que",
@@ -53,7 +53,15 @@ const resources = {
           marketing_specialist: "Marketing Specialist",
           data_analytics: "Data Analytics",
           web_developer: "Web Developer"
-        }
+        },
+        descriptions: {
+          kristina: "Diseñadora multidisciplinaria y Co-fundadora de una agencia creativa. Trabaja en diseño gráfico, UX/UI, branding, redes sociales y desarrollo web, creando soluciones digitales centradas en las personas que fortalecen marcas y mejoran experiencias. Su enfoque abarca desde identidades visuales y contenido multimedia hasta sitios web responsive y estrategias digitales, acompañando a empresas en la construcción de una presencia online clara, actual y auténtica.",
+          mehedi: "Especialista en marketing digital enfocada en contenido, redes sociales y estrategia. Desarrolla campañas orientadas a comunicación de marca, engagement y posicionamiento, integrando análisis, creatividad y gestión en distintos canales digitales. Acompaña a empresas en procesos de visibilidad y crecimiento, estructurando líneas editoriales, calendarios y narrativas que conectan con audiencias reales y objetivos comerciales.",
+          carla: "Consultora en Business Intelligence y análisis de datos con experiencia en SQL, Power BI y reporting. Se especializa en transformar información en visualizaciones claras, métricas clave e insights accionables para apoyar toma de decisiones, rendimiento y crecimiento. Ha trabajado con equipos internos y clientes en procesos de análisis, dashboards y estrategias basadas en datos, acompañando objetivos comerciales y operativos con claridad y enfoque.",
+          diego: "Desarrollador web con experiencia en Webflow, Ruby on Rails y construcción de interfaces digitales. Trabaja en implementación de sitios web, optimización de performance y adaptación responsive, integrando aspectos técnicos con necesidades de diseño y producto. Colabora con equipos interdisciplinarios para llevar experiencias digitales del concepto a la ejecución, priorizando funcionalidad, accesibilidad y mejoras continuas."
+        },
+        read_more: "Ver más",
+        read_less: "Ver menos"
       },
       contact: {
         title: "¿Listo para escalar tu negocio?",
@@ -138,7 +146,15 @@ const resources = {
           marketing_specialist: "Marketing Specialist",
           data_analytics: "Data Analytics",
           web_developer: "Web Developer"
-        }
+        },
+        descriptions: {
+          kristina: "Multidisciplinary designer and Co-founder of a creative agency. Works in graphic design, UX/UI, branding, social media, and web development, creating people-centered digital solutions that strengthen brands and improve experiences. Her approach ranges from visual identities and multimedia content to responsive websites and digital strategies, accompanying companies in building a clear, current, and authentic online presence.",
+          mehedi: "Digital marketing specialist focused on content, social media, and strategy. Develops campaigns oriented towards brand communication, engagement, and positioning, integrating analysis, creativity, and management across different digital channels. Accompanies companies in visibility and growth processes, structuring editorial lines, calendars, and narratives that connect with real audiences and business objectives.",
+          carla: "Business Intelligence and data analysis consultant with experience in SQL, Power BI, and reporting. Specializes in transforming information into clear visualizations, key metrics, and actionable insights to support decision-making, performance, and growth. Has worked with internal teams and clients on analysis processes, dashboards, and data-driven strategies, accompanying commercial and operational objectives with clarity and focus.",
+          diego: "Web developer with experience in Webflow, Ruby on Rails, and digital interface construction. Works on website implementation, performance optimization, and responsive adaptation, integrating technical aspects with design and product needs. Collaborates with interdisciplinary teams to take digital experiences from concept to execution, prioritizing functionality, accessibility, and continuous improvements."
+        },
+        read_more: "Read more",
+        read_less: "Read less"
       },
       contact: {
         title: "Ready to scale your business?",
