@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { useTranslation } from 'react-i18next';
 import { 
   Linkedin, 
   Instagram, 
@@ -22,10 +23,12 @@ import {
   Lightbulb,
   MapPin,
   Phone,
-  Mail
+  Mail,
+  Globe
 } from 'lucide-react';
 
 export default function App() {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     nombre: '',
@@ -36,6 +39,11 @@ export default function App() {
   });
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'es' ? 'en' : 'es';
+    i18n.changeLanguage(newLang);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -65,38 +73,38 @@ ${mensaje}`;
 
   const services = [
     {
-      title: "UX/UI & Product Design",
-      desc: "Diseño centrado en el usuario que convierte visitantes en clientes leales.",
+      title: t('services.ux_ui.title'),
+      desc: t('services.ux_ui.desc'),
       borderColor: "border-[#00E5FF]", // Cyan
       icon: <Palette className="w-8 h-8 text-[#00E5FF]" />
     },
     {
-      title: "Desarrollo Web & Tecnología",
-      desc: "Sitios y aplicaciones robustas, escalables y de alto rendimiento.",
+      title: t('services.web_dev.title'),
+      desc: t('services.web_dev.desc'),
       borderColor: "border-blue-600", // Royal Blue
       icon: <Code className="w-8 h-8 text-blue-600" />
     },
     {
-      title: "Branding & Identidad",
-      desc: "Construimos marcas memorables con identidad visual impactante.",
+      title: t('services.branding.title'),
+      desc: t('services.branding.desc'),
       borderColor: "border-pink-500", // Pink/Magenta
       icon: <Lightbulb className="w-8 h-8 text-pink-500" />
     },
     {
-      title: "Marketing & Growth",
-      desc: "Estrategias de crecimiento basadas en datos y resultados tangibles.",
+      title: t('services.marketing.title'),
+      desc: t('services.marketing.desc'),
       borderColor: "border-emerald-400", // Mint Green
       icon: <TrendingUp className="w-8 h-8 text-emerald-400" />
     },
     {
-      title: "IA & Automatización",
-      desc: "Optimizamos procesos integrando inteligencia artificial avanzada.",
+      title: t('services.ai.title'),
+      desc: t('services.ai.desc'),
       borderColor: "border-orange-500", // Red/Orange
       icon: <Cpu className="w-8 h-8 text-orange-500" />
     },
     {
-      title: "Consultoría Digital Estratégica",
-      desc: "Asesoramiento experto para la transformación digital de tu negocio.",
+      title: t('services.consulting.title'),
+      desc: t('services.consulting.desc'),
       borderColor: "border-yellow-400", // Yellow
       icon: <Smartphone className="w-8 h-8 text-yellow-400" />
     }
@@ -105,25 +113,25 @@ ${mensaje}`;
   const team = [
     {
       name: "Kristina Berrios",
-      role: "Lead Designer",
+      role: t('team.roles.lead_designer'),
       img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-4.png",
       linkedin: "https://www.linkedin.com/in/kristina-berrios-esteller/"
     },
     {
       name: "Mehedi Hassan",
-      role: "Marketing Specialist",
+      role: t('team.roles.marketing_specialist'),
       img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-2.png",
       linkedin: "https://www.linkedin.com/in/b%C3%A1rbara-hromin-ciccone-1728531a1/"
     },
     {
       name: "Carla Ríos",
-      role: "Data Analytics",
+      role: t('team.roles.data_analytics'),
       img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-1-2.png",
       linkedin: "https://www.linkedin.com/in/carla-rios-0366b868/"
     },
     {
       name: "Diego Angola",
-      role: "Web Developer",
+      role: t('team.roles.web_developer'),
       img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-8-2048x2048.png",
       linkedin: "https://www.linkedin.com/in/diegodavidangola/"
     }
@@ -144,25 +152,39 @@ ${mensaje}`;
 
             {/* Desktop Menu - Optimizado con lg:flex para evitar amontonamiento en tablet */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="#home" className="text-gray-300 hover:text-[#00E5FF] transition-colors text-sm uppercase tracking-widest font-medium">Home</a>
-              <a href="#team" className="text-gray-300 hover:text-[#00E5FF] transition-colors text-sm uppercase tracking-widest font-medium">Team</a>
-              <a href="#services" className="text-gray-300 hover:text-[#00E5FF] transition-colors text-sm uppercase tracking-widest font-medium">Servicios</a>
+              <a href="#home" className="text-gray-300 hover:text-[#00E5FF] transition-colors text-sm uppercase tracking-widest font-medium">{t('navbar.home')}</a>
+              <a href="#team" className="text-gray-300 hover:text-[#00E5FF] transition-colors text-sm uppercase tracking-widest font-medium">{t('navbar.team')}</a>
+              <a href="#services" className="text-gray-300 hover:text-[#00E5FF] transition-colors text-sm uppercase tracking-widest font-medium">{t('navbar.services')}</a>
             </div>
 
             {/* Right Actions - Ajustado con lg:space-x-6 y space-x-3 */}
             <div className="hidden md:flex items-center lg:space-x-6 space-x-3">
+              <button 
+                onClick={toggleLanguage}
+                className="text-gray-400 hover:text-[#00E5FF] transition-colors flex items-center space-x-1"
+              >
+                <Globe size={18} />
+                <span className="text-xs font-bold uppercase">{i18n.language === 'es' ? 'EN' : 'ES'}</span>
+              </button>
               <div className="flex space-x-3 lg:space-x-4">
                 <a href="https://www.linkedin.com/company/zenbyte-agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><Linkedin size={18} /></a>
                 <a href="https://wa.me/5491170670047" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><MessageCircle size={18} /></a>
                 <a href="https://www.instagram.com/zenbyte_agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><Instagram size={18} /></a>
               </div>
               <button className="px-4 lg:px-6 py-2 border border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF] hover:text-black transition-all duration-300 text-[10px] lg:text-sm font-bold uppercase tracking-wider whitespace-nowrap">
-                Chat with us
+                {t('navbar.chat')}
               </button>
             </div>
 
             {/* Mobile menu button - Ahora se activa antes de que el menú colisione */}
-            <div className="lg:hidden flex items-center">
+            <div className="lg:hidden flex items-center space-x-4">
+              <button 
+                onClick={toggleLanguage}
+                className="text-gray-400 hover:text-[#00E5FF] transition-colors flex items-center space-x-1"
+              >
+                <Globe size={24} />
+                <span className="text-xs font-bold uppercase">{i18n.language === 'es' ? 'EN' : 'ES'}</span>
+              </button>
               <button onClick={toggleMenu} className="text-gray-300 hover:text-white">
                 {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -178,9 +200,9 @@ ${mensaje}`;
             className="lg:hidden bg-black border-b border-white/10"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Home</a>
-              <a href="#team" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Team</a>
-              <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">Servicios</a>
+              <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">{t('navbar.home')}</a>
+              <a href="#team" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">{t('navbar.team')}</a>
+              <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">{t('navbar.services')}</a>
             </div>
           </motion.div>
         )}
@@ -209,8 +231,8 @@ ${mensaje}`;
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl font-display font-bold leading-tight tracking-tight mb-8"
           >
-            Soluciones digitales que <span className="text-[#00E5FF]">conectan</span>, <br className="hidden md:block" />
-            crean valor y generan <span className="text-purple-500">impacto</span>
+            {t('hero.title_part1')} <span className="text-[#00E5FF]">{t('hero.title_highlight1')}</span>, <br className="hidden md:block" />
+            {t('hero.title_part2')} <span className="text-purple-500">{t('hero.title_highlight2')}</span>
           </motion.h1>
           
           <motion.p 
@@ -219,7 +241,7 @@ ${mensaje}`;
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-4 max-w-2xl mx-auto text-xl text-gray-400 font-light"
           >
-            Consultoría UX/UI, desarrollo tecnológico y estrategias de crecimiento para marcas que buscan liderar el futuro.
+            {t('hero.subtitle')}
           </motion.p>
           
           <motion.div 
@@ -229,7 +251,7 @@ ${mensaje}`;
             className="mt-10"
           >
             <a href="#contact" className="inline-block px-10 py-4 bg-[#00E5FF] text-black font-bold uppercase tracking-widest hover:bg-[#00cce6] transition-colors shadow-[0_0_20px_rgba(0,229,255,0.3)]">
-              Contáctanos
+              {t('hero.cta')}
             </a>
           </motion.div>
         </div>
@@ -239,7 +261,7 @@ ${mensaje}`;
       <section id="services" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Premium Digital Solutions</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">{t('services.section_title')}</h2>
             <div className="w-24 h-1 bg-[#00E5FF] mx-auto"></div>
           </div>
 
@@ -267,8 +289,8 @@ ${mensaje}`;
       <section id="team" className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Nuestro Equipo</h2>
-            <p className="text-gray-400">Mentes creativas detrás de cada proyecto</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">{t('team.section_title')}</h2>
+            <p className="text-gray-400">{t('team.subtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -310,9 +332,9 @@ ${mensaje}`;
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <div>
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">¿Listo para escalar tu negocio?</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">{t('contact.title')}</h2>
               <p className="text-xl text-gray-400 mb-8 font-light">
-                Hablemos sobre cómo podemos transformar tu presencia digital y generar resultados reales.
+                {t('contact.subtitle')}
               </p>
               
               <div className="space-y-6">
@@ -321,7 +343,7 @@ ${mensaje}`;
                     <MapPin className="text-[#00E5FF]" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">Ubicación</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">{t('contact.location_label')}</p>
                     <p className="font-medium">Ciudad Autónoma de Buenos Aires</p>
                   </div>
                 </div>
@@ -331,7 +353,7 @@ ${mensaje}`;
                     <Phone className="text-[#00E5FF]" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">Teléfono</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">{t('contact.phone_label')}</p>
                     <p className="font-medium">(+54) 9 11 7067-0047</p>
                   </div>
                 </div>
@@ -341,7 +363,7 @@ ${mensaje}`;
                     <Mail className="text-[#00E5FF]" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">Email</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">{t('contact.email_label')}</p>
                     <p className="font-medium">hello@zenbyteagency.com.ar</p>
                   </div>
                 </div>
@@ -350,11 +372,11 @@ ${mensaje}`;
 
             {/* White Box Form */}
             <div className="bg-white text-black p-8 md:p-10 shadow-2xl rounded-sm">
-              <h3 className="text-2xl font-bold mb-6 font-display">Envíanos un mensaje</h3>
+              <h3 className="text-2xl font-bold mb-6 font-display">{t('contact.form.title')}</h3>
               <form onSubmit={handleWhatsAppSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Nombre</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">{t('contact.form.name')}</label>
                     <input 
                       type="text" 
                       name="nombre"
@@ -362,11 +384,11 @@ ${mensaje}`;
                       onChange={handleInputChange}
                       required
                       className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
-                      placeholder="Tu nombre" 
+                      placeholder={t('contact.form.name_placeholder')} 
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Apellido</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">{t('contact.form.lastname')}</label>
                     <input 
                       type="text" 
                       name="apellido"
@@ -374,14 +396,14 @@ ${mensaje}`;
                       onChange={handleInputChange}
                       required
                       className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
-                      placeholder="Tu apellido" 
+                      placeholder={t('contact.form.lastname_placeholder')} 
                     />
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Correo</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">{t('contact.form.email')}</label>
                     <input 
                       type="email" 
                       name="email"
@@ -389,11 +411,11 @@ ${mensaje}`;
                       onChange={handleInputChange}
                       required
                       className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
-                      placeholder="nombre@ejemplo.com" 
+                      placeholder={t('contact.form.email_placeholder')} 
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Teléfono</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">{t('contact.form.phone')}</label>
                     <div className="text-black">
                       <PhoneInput
                         country={'ar'}
@@ -422,7 +444,7 @@ ${mensaje}`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Mensaje</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">{t('contact.form.message')}</label>
                   <textarea 
                     rows={4} 
                     name="mensaje"
@@ -430,12 +452,12 @@ ${mensaje}`;
                     onChange={handleInputChange}
                     required
                     className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
-                    placeholder="¿Cómo podemos ayudarte?"
+                    placeholder={t('contact.form.message_placeholder')}
                   ></textarea>
                 </div>
 
                 <button type="submit" className="w-full bg-[#00E5FF] text-black font-bold uppercase tracking-widest py-4 hover:bg-[#00cce6] transition-colors">
-                  Enviar Mensaje por WhatsApp
+                  {t('contact.form.submit')}
                 </button>
               </form>
             </div>
@@ -456,24 +478,24 @@ ${mensaje}`;
                 <span className="font-display font-light text-2xl tracking-wider text-gray-400 ml-2">AGENCY</span>
               </div>
               <p className="text-gray-500 text-sm leading-relaxed">
-                Transformamos ideas en experiencias digitales excepcionales. Innovación, diseño y tecnología al servicio de tu crecimiento.
+                {t('footer.desc')}
               </p>
             </div>
 
             {/* Column 2: Links */}
             <div>
-              <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Explorar</h4>
+              <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.explore')}</h4>
               <ul className="space-y-3 text-sm text-gray-400">
-                <li><a href="#home" className="hover:text-[#00E5FF] transition-colors">Home</a></li>
-                <li><a href="#services" className="hover:text-[#00E5FF] transition-colors">Servicios</a></li>
-                <li><a href="#team" className="hover:text-[#00E5FF] transition-colors">Team</a></li>
-                <li><a href="#contact" className="hover:text-[#00E5FF] transition-colors">Contacto</a></li>
+                <li><a href="#home" className="hover:text-[#00E5FF] transition-colors">{t('navbar.home')}</a></li>
+                <li><a href="#services" className="hover:text-[#00E5FF] transition-colors">{t('navbar.services')}</a></li>
+                <li><a href="#team" className="hover:text-[#00E5FF] transition-colors">{t('navbar.team')}</a></li>
+                <li><a href="#contact" className="hover:text-[#00E5FF] transition-colors">{t('footer.contact')}</a></li>
               </ul>
             </div>
 
             {/* Column 3: Services */}
             <div>
-              <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Servicios</h4>
+              <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.services')}</h4>
               <ul className="space-y-3 text-sm text-gray-400">
                 <li><a href="#" className="hover:text-[#00E5FF] transition-colors">UX/UI Design</a></li>
                 <li><a href="#" className="hover:text-[#00E5FF] transition-colors">Web Development</a></li>
@@ -484,7 +506,7 @@ ${mensaje}`;
 
             {/* Column 4: Contact */}
             <div>
-              <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Contacto</h4>
+              <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.contact')}</h4>
               <ul className="space-y-3 text-sm text-gray-400">
                 <li className="flex items-start">
                   <MapPin size={16} className="mr-2 mt-0.5 text-[#00E5FF]" />
@@ -504,11 +526,11 @@ ${mensaje}`;
 
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 text-sm">
-              &copy; 2026 Zenbyte Agency. Todos los derechos reservados.
+              {t('footer.copyright')}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-600 hover:text-white transition-colors text-sm">Privacidad</a>
-              <a href="#" className="text-gray-600 hover:text-white transition-colors text-sm">Términos</a>
+              <a href="#" className="text-gray-600 hover:text-white transition-colors text-sm">{t('footer.privacy')}</a>
+              <a href="#" className="text-gray-600 hover:text-white transition-colors text-sm">{t('footer.terms')}</a>
             </div>
           </div>
         </div>
