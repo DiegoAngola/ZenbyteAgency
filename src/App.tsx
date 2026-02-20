@@ -5,6 +5,8 @@
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import { 
   Linkedin, 
   Instagram, 
@@ -40,13 +42,17 @@ export default function App() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handlePhoneChange = (value: string) => {
+    setFormData(prev => ({ ...prev, telefono: value }));
+  };
+
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { nombre, apellido, email, telefono, mensaje } = formData;
     
     const text = `Hola Zenbyte Agency, mi nombre es ${nombre} ${apellido}.
 Email: ${email}
-Teléfono: ${telefono}
+Teléfono: +${telefono}
 
 Mensaje:
 ${mensaje}`;
@@ -379,15 +385,30 @@ ${mensaje}`;
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Teléfono</label>
-                    <input 
-                      type="tel" 
-                      name="telefono"
-                      value={formData.telefono}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full bg-gray-50 border border-gray-200 p-3 focus:outline-none focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] transition-all" 
-                      placeholder="(+54) ..." 
-                    />
+                    <div className="text-black">
+                      <PhoneInput
+                        country={'ar'}
+                        value={formData.telefono}
+                        onChange={handlePhoneChange}
+                        inputStyle={{
+                          width: '100%',
+                          height: '50px',
+                          fontSize: '16px',
+                          paddingLeft: '48px',
+                          backgroundColor: 'rgb(249 250 251)',
+                          borderColor: 'rgb(229 231 235)',
+                          borderRadius: '0px'
+                        }}
+                        buttonStyle={{
+                          backgroundColor: 'rgb(249 250 251)',
+                          borderColor: 'rgb(229 231 235)',
+                          borderRadius: '0px'
+                        }}
+                        dropdownStyle={{
+                          color: 'black'
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
 
