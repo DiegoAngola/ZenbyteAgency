@@ -69,7 +69,7 @@ export default function Team() {
                 <img 
                   src={member.img} 
                   alt={member.name} 
-                  className="w-full h-full object-cover rounded-full border-2 border-gray-200 dark:border-gray-800 group-hover:border-[#00E5FF] transition-colors duration-300 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover rounded-full border-2 border-gray-200 dark:border-gray-800 group-hover:border-[#00E5FF] transition-colors duration-300 lg:grayscale lg:group-hover:grayscale-0"
                   referrerPolicy="no-referrer"
                 />
                 <a 

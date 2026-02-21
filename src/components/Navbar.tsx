@@ -74,18 +74,18 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center space-x-4">
+          <div className="lg:hidden flex items-center space-x-4 ml-2">
             <button 
               onClick={toggleTheme}
-              className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors"
+              className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors md:hidden"
             >
               {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
             </button>
             <button 
               onClick={toggleLanguage}
-              className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors flex items-center space-x-1"
+              className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors flex items-center space-x-1 md:hidden"
             >
-              <Globe size={24} />
+              <Globe size={22} />
               <span className="text-xs font-bold uppercase">{i18n.language === 'es' ? 'EN' : 'ES'}</span>
             </button>
             <button onClick={toggleMenu} className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white">
