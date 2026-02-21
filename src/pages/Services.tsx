@@ -10,36 +10,42 @@ export default function Services() {
     {
       title: t('services.ux_ui.title'),
       desc: t('services.ux_ui.desc'),
+      details: t('services.ux_ui.details', { returnObjects: true }) as string[],
       borderColor: "border-[#00E5FF]", // Cyan
       icon: <Palette className="w-8 h-8 text-[#00E5FF]" />
     },
     {
       title: t('services.web_dev.title'),
       desc: t('services.web_dev.desc'),
+      details: t('services.web_dev.details', { returnObjects: true }) as string[],
       borderColor: "border-blue-600", // Royal Blue
       icon: <Code className="w-8 h-8 text-blue-600" />
     },
     {
       title: t('services.branding.title'),
       desc: t('services.branding.desc'),
+      details: t('services.branding.details', { returnObjects: true }) as string[],
       borderColor: "border-pink-500", // Pink/Magenta
       icon: <Lightbulb className="w-8 h-8 text-pink-500" />
     },
     {
       title: t('services.marketing.title'),
       desc: t('services.marketing.desc'),
+      details: t('services.marketing.details', { returnObjects: true }) as string[],
       borderColor: "border-emerald-400", // Mint Green
       icon: <TrendingUp className="w-8 h-8 text-emerald-400" />
     },
     {
       title: t('services.ai.title'),
       desc: t('services.ai.desc'),
+      details: t('services.ai.details', { returnObjects: true }) as string[],
       borderColor: "border-orange-500", // Red/Orange
       icon: <Cpu className="w-8 h-8 text-orange-500" />
     },
     {
       title: t('services.consulting.title'),
       desc: t('services.consulting.desc'),
+      details: t('services.consulting.details', { returnObjects: true }) as string[],
       borderColor: "border-yellow-400", // Yellow
       icon: <Smartphone className="w-8 h-8 text-yellow-400" />
     }
@@ -64,9 +70,17 @@ export default function Services() {
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-3 font-display">{service.title}</h3>
-              <p className="text-gray-400 leading-relaxed text-sm">
+              <p className="text-gray-400 leading-relaxed text-sm mb-4">
                 {service.desc}
               </p>
+              <ul className="space-y-2">
+                {service.details.map((detail, idx) => (
+                  <li key={idx} className="text-gray-500 text-sm flex items-start">
+                    <span className="mr-2 text-[#00E5FF]">•</span>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

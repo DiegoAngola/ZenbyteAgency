@@ -22,27 +22,62 @@ const resources = {
         section_title: "Premium Digital Solutions",
         ux_ui: {
           title: "UX/UI & Product Design",
-          desc: "Diseño centrado en el usuario que convierte visitantes en clientes leales."
+          desc: "Diseño centrado en el usuario que convierte visitantes en clientes leales.",
+          details: [
+            "Research & análisis de usuario",
+            "Arquitectura de información",
+            "Diseño de interfaces",
+            "Prototipado y testing"
+          ]
         },
         web_dev: {
           title: "Desarrollo Web & Tecnología",
-          desc: "Sitios y aplicaciones robustas, escalables y de alto rendimiento."
+          desc: "Sitios y aplicaciones robustas, escalables y de alto rendimiento.",
+          details: [
+            "Web corporativas",
+            "Landing pages de alto rendimiento",
+            "E-commerce",
+            "Integraciones y performance"
+          ]
         },
         branding: {
           title: "Branding & Identidad",
-          desc: "Construimos marcas memorables con identidad visual impactante."
+          desc: "Construimos marcas memorables con identidad visual impactante.",
+          details: [
+            "Estrategia de marca",
+            "Identidad visual",
+            "Sistemas gráficos",
+            "Brand guidelines"
+          ]
         },
         marketing: {
           title: "Marketing & Growth",
-          desc: "Estrategias de crecimiento basadas en datos y resultados tangibles."
+          desc: "Estrategias de crecimiento basadas en datos y resultados tangibles.",
+          details: [
+            "Gestión de redes sociales",
+            "Meta Ads",
+            "Google Ads",
+            "SEO"
+          ]
         },
         ai: {
           title: "IA & Automatización",
-          desc: "Optimizamos procesos integrando inteligencia artificial avanzada."
+          desc: "Optimizamos procesos integrando inteligencia artificial avanzada.",
+          details: [
+            "Chatbots",
+            "Automatización CRM",
+            "Flujos inteligentes",
+            "Integraciones con IA"
+          ]
         },
         consulting: {
           title: "Consultoría Digital Estratégica",
-          desc: "Asesoramiento experto para la transformación digital de tu negocio."
+          desc: "Asesoramiento experto para la transformación digital de tu negocio.",
+          details: [
+            "Auditoría digital",
+            "Definición de stack tecnológico",
+            "Estrategia de escalabilidad"
+          ]
         }
       },
       team: {
@@ -115,27 +150,62 @@ const resources = {
         section_title: "Premium Digital Solutions",
         ux_ui: {
           title: "UX/UI & Product Design",
-          desc: "User-centered design that converts visitors into loyal customers."
+          desc: "User-centered design that converts visitors into loyal customers.",
+          details: [
+            "User research & analysis",
+            "Information architecture",
+            "Interface design",
+            "Prototyping and testing"
+          ]
         },
         web_dev: {
           title: "Web Development & Technology",
-          desc: "Robust, scalable, and high-performance websites and applications."
+          desc: "Robust, scalable, and high-performance websites and applications.",
+          details: [
+            "Corporate websites",
+            "High-performance landing pages",
+            "E-commerce",
+            "Integrations and performance"
+          ]
         },
         branding: {
           title: "Branding & Identity",
-          desc: "We build memorable brands with impactful visual identity."
+          desc: "We build memorable brands with impactful visual identity.",
+          details: [
+            "Brand strategy",
+            "Visual identity",
+            "Graphic systems",
+            "Brand guidelines"
+          ]
         },
         marketing: {
           title: "Marketing & Growth",
-          desc: "Growth strategies based on data and tangible results."
+          desc: "Growth strategies based on data and tangible results.",
+          details: [
+            "Social media management",
+            "Meta Ads",
+            "Google Ads",
+            "SEO"
+          ]
         },
         ai: {
           title: "AI & Automation",
-          desc: "We optimize processes by integrating advanced artificial intelligence."
+          desc: "We optimize processes by integrating advanced artificial intelligence.",
+          details: [
+            "Chatbots",
+            "CRM automation",
+            "Smart workflows",
+            "AI integrations"
+          ]
         },
         consulting: {
           title: "Strategic Digital Consulting",
-          desc: "Expert advice for the digital transformation of your business."
+          desc: "Expert advice for the digital transformation of your business.",
+          details: [
+            "Digital audit",
+            "Tech stack definition",
+            "Scalability strategy"
+          ]
         }
       },
       team: {
