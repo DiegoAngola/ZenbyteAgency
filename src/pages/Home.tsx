@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { Megaphone, Layout, BarChart3, Bot } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -90,11 +91,23 @@ function AboutSection() {
           <div className="relative h-64 lg:h-auto rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-white/10 flex items-center justify-center">
              {/* Abstract visual representation */}
              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
-             <div className="grid grid-cols-2 gap-4 p-8 opacity-50">
-                <div className="w-24 h-24 rounded-lg border border-[#00E5FF]/30 bg-[#00E5FF]/5"></div>
-                <div className="w-24 h-24 rounded-lg border border-purple-500/30 bg-purple-500/5"></div>
-                <div className="w-24 h-24 rounded-lg border border-emerald-500/30 bg-emerald-500/5"></div>
-                <div className="w-24 h-24 rounded-lg border border-orange-500/30 bg-orange-500/5"></div>
+             <div className="grid grid-cols-2 gap-4 p-8 relative z-10">
+                <div className="w-32 h-32 rounded-xl border border-[#00E5FF]/30 bg-[#00E5FF]/5 flex flex-col items-center justify-center text-center p-4 backdrop-blur-sm hover:bg-[#00E5FF]/10 transition-colors">
+                  <Megaphone className="w-10 h-10 text-[#00E5FF] mb-2" />
+                  <span className="text-xs text-gray-300 font-bold uppercase">Marketing</span>
+                </div>
+                <div className="w-32 h-32 rounded-xl border border-purple-500/30 bg-purple-500/5 flex flex-col items-center justify-center text-center p-4 backdrop-blur-sm hover:bg-purple-500/10 transition-colors">
+                  <Layout className="w-10 h-10 text-purple-500 mb-2" />
+                  <span className="text-xs text-gray-300 font-bold uppercase">Web & UX</span>
+                </div>
+                <div className="w-32 h-32 rounded-xl border border-emerald-500/30 bg-emerald-500/5 flex flex-col items-center justify-center text-center p-4 backdrop-blur-sm hover:bg-emerald-500/10 transition-colors">
+                  <BarChart3 className="w-10 h-10 text-emerald-500 mb-2" />
+                  <span className="text-xs text-gray-300 font-bold uppercase">Data</span>
+                </div>
+                <div className="w-32 h-32 rounded-xl border border-orange-500/30 bg-orange-500/5 flex flex-col items-center justify-center text-center p-4 backdrop-blur-sm hover:bg-orange-500/10 transition-colors">
+                  <Bot className="w-10 h-10 text-orange-500 mb-2" />
+                  <span className="text-xs text-gray-300 font-bold uppercase">AI & Auto</span>
+                </div>
              </div>
           </div>
         </div>
