@@ -24,7 +24,7 @@ export default function Team() {
       linkedin: "https://www.linkedin.com/in/kristina-berrios-esteller/"
     },
     {
-      name: "Mehedi Hassan",
+      name: "Barbara Hronim",
       role: t('team.roles.marketing_specialist'),
       desc: t('team.descriptions.mehedi'),
       img: "https://zenbyteagency.com.ar/wp-content/uploads/2026/01/envato-labs-image-edit-2.png",
