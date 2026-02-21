@@ -15,8 +15,31 @@ const resources = {
         title_highlight1: "conectan",
         title_part2: "crean valor y generan",
         title_highlight2: "impacto",
-        subtitle: "Consultoría UX/UI, desarrollo tecnológico y estrategias de crecimiento para marcas que buscan liderar el futuro.",
+        subtitle: "Un equipo multidisciplinario enfocado en ecosistemas digitales modernos. Digital, Marketing, Data & Automation.",
         cta: "Contáctanos"
+      },
+      about: {
+        title: "Quiénes Somos",
+        subtitle: "Un Equipo Multidisciplinario Enfocado en Ecosistemas Digitales Modernos",
+        desc1: "Zenbyte es un equipo multidisciplinario especializado en construir y optimizar ecosistemas empresariales modernos.",
+        desc2: "Combinamos estrategia, diseño, marketing, tecnología, automatización y datos para ayudar a las empresas a operar de manera más eficiente y crecer con estructura sólida.",
+        desc3: "Trabajamos directamente con empresas y también colaboramos con equipos y consultorías en proyectos que requieren ejecución digital especializada."
+      },
+      methodology: {
+        title: "Cómo Trabajamos",
+        subtitle: "Nuestro enfoque integra estrategia, ejecución y mejora continua",
+        steps: {
+          understand: "Comprender",
+          design: "Diseñar",
+          execute: "Ejecutar",
+          optimize: "Optimizar"
+        },
+        desc: "Nuestro flujo de trabajo es flexible y se adapta a las particularidades de cada proyecto y organización."
+      },
+      collaboration: {
+        title: "Modalidades de Colaboración",
+        desc: "Trabajamos tanto en proyectos específicos con alcance definido como en procesos continuos de optimización y soporte, dependiendo de los requerimientos y objetivos del cliente.",
+        flexibility: "Esta flexibilidad nos permite integrarnos efectivamente con equipos internos o actuar como extensión de consultorías que requieren capacidades digitales especializadas."
       },
       services: {
         section_title: "Premium Digital Solutions",
@@ -143,8 +166,31 @@ const resources = {
         title_highlight1: "connect",
         title_part2: "create value and generate",
         title_highlight2: "impact",
-        subtitle: "UX/UI consulting, technological development, and growth strategies for brands looking to lead the future.",
+        subtitle: "A multidisciplinary team focused on modern digital ecosystems. Digital, Marketing, Data & Automation.",
         cta: "Contact Us"
+      },
+      about: {
+        title: "Who We Are",
+        subtitle: "A Multidisciplinary Team Focused on Modern Digital Ecosystems",
+        desc1: "Zenbyte is a multidisciplinary team specialized in building and optimizing modern business ecosystems.",
+        desc2: "We combine strategy, design, marketing, technology, automation, and data to help companies operate more efficiently and grow with a solid structure.",
+        desc3: "We work directly with companies and also collaborate with teams and consultancies on projects requiring specialized digital execution."
+      },
+      methodology: {
+        title: "How We Work",
+        subtitle: "Our approach integrates strategy, execution, and continuous improvement",
+        steps: {
+          understand: "Understand",
+          design: "Design",
+          execute: "Execute",
+          optimize: "Optimize"
+        },
+        desc: "Our workflow is flexible and adapts to the particularities of each project and organization."
+      },
+      collaboration: {
+        title: "Collaboration Models",
+        desc: "We work on both specific projects with defined scope and continuous optimization and support processes, depending on the client's requirements and objectives.",
+        flexibility: "This flexibility allows us to effectively integrate with internal teams or act as an extension of consultancies requiring specialized digital capabilities."
       },
       services: {
         section_title: "Premium Digital Solutions",
