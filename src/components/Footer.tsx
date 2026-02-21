@@ -7,25 +7,25 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-black border-t border-white/10 pt-16 pb-8">
+    <footer className="bg-white dark:bg-black border-t border-gray-200 dark:border-white/10 pt-16 pb-8 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           
           {/* Column 1: Brand */}
           <div>
             <div className="flex items-center mb-6">
-              <span className="font-display font-bold text-2xl tracking-wider text-white">ZENBYTE</span>
-              <span className="font-display font-light text-2xl tracking-wider text-gray-400 ml-2">AGENCY</span>
+              <span className="font-display font-bold text-2xl tracking-wider text-gray-900 dark:text-white">ZENBYTE</span>
+              <span className="font-display font-light text-2xl tracking-wider text-gray-500 dark:text-gray-400 ml-2">AGENCY</span>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-500 text-sm leading-relaxed">
               {t('footer.desc')}
             </p>
           </div>
 
           {/* Column 2: Links */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.explore')}</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
+            <h4 className="text-gray-900 dark:text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.explore')}</h4>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
               <li><Link to="/" className="hover:text-[#00E5FF] transition-colors">{t('navbar.home')}</Link></li>
               <li><Link to="/services" className="hover:text-[#00E5FF] transition-colors">{t('navbar.services')}</Link></li>
               <li><Link to="/team" className="hover:text-[#00E5FF] transition-colors">{t('navbar.team')}</Link></li>
@@ -35,8 +35,8 @@ export default function Footer() {
 
           {/* Column 3: Services */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.services')}</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
+            <h4 className="text-gray-900 dark:text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.services')}</h4>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
               <li><Link to="/services" className="hover:text-[#00E5FF] transition-colors">UX/UI Design</Link></li>
               <li><Link to="/services" className="hover:text-[#00E5FF] transition-colors">Web Development</Link></li>
               <li><Link to="/services" className="hover:text-[#00E5FF] transition-colors">Marketing Digital</Link></li>
@@ -46,8 +46,8 @@ export default function Footer() {
 
           {/* Column 4: Contact */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.contact')}</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
+            <h4 className="text-gray-900 dark:text-white font-bold uppercase tracking-widest mb-6 text-sm">{t('footer.contact')}</h4>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
               <li className="flex items-start">
                 <MapPin size={16} className="mr-2 mt-0.5 text-[#00E5FF]" />
                 <span>Ciudad Autónoma de Buenos Aires</span>
@@ -64,13 +64,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-600 text-sm">
+        <div className="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 dark:text-gray-600 text-sm">
             {t('footer.copyright')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-600 hover:text-white transition-colors text-sm">{t('footer.privacy')}</a>
-            <a href="#" className="text-gray-600 hover:text-white transition-colors text-sm">{t('footer.terms')}</a>
+            <a href="#" className="text-gray-500 dark:text-gray-600 hover:text-black dark:hover:text-white transition-colors text-sm">{t('footer.privacy')}</a>
+            <a href="#" className="text-gray-500 dark:text-gray-600 hover:text-black dark:hover:text-white transition-colors text-sm">{t('footer.terms')}</a>
           </div>
         </div>
       </div>

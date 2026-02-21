@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-black text-white selection:bg-[#00E5FF] selection:text-black overflow-x-hidden flex flex-col">
+      <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white selection:bg-[#00E5FF] selection:text-black overflow-x-hidden flex flex-col transition-colors duration-300">
         <Navbar />
         <main className="flex-grow">
           <Routes>

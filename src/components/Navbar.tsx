@@ -6,14 +6,18 @@ import {
   MessageCircle, 
   Menu, 
   X, 
-  Globe
+  Globe,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 import { motion } from 'motion/react';
+import useTheme from '../hooks/useTheme';
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -23,16 +27,16 @@ export default function Navbar() {
   };
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) => 
-    `text-sm uppercase tracking-widest font-medium transition-colors ${isActive ? 'text-[#00E5FF]' : 'text-gray-300 hover:text-[#00E5FF]'}`;
+    `text-sm uppercase tracking-widest font-medium transition-colors ${isActive ? 'text-[#00E5FF]' : 'text-gray-600 dark:text-gray-300 hover:text-[#00E5FF]'}`;
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 flex items-center cursor-pointer">
-            <span className="font-display font-bold text-xl sm:text-2xl tracking-wider text-white">ZENBYTE</span>
-            <span className="font-display font-light text-xl sm:text-2xl tracking-wider text-gray-400 ml-2">AGENCY</span>
+            <span className="font-display font-bold text-xl sm:text-2xl tracking-wider text-black dark:text-white">ZENBYTE</span>
+            <span className="font-display font-light text-xl sm:text-2xl tracking-wider text-gray-500 dark:text-gray-400 ml-2">AGENCY</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -46,16 +50,23 @@ export default function Navbar() {
           {/* Right Actions */}
           <div className="hidden md:flex items-center lg:space-x-6 space-x-3">
             <button 
+              onClick={toggleTheme}
+              className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button 
               onClick={toggleLanguage}
-              className="text-gray-400 hover:text-[#00E5FF] transition-colors flex items-center space-x-1"
+              className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors flex items-center space-x-1"
             >
               <Globe size={18} />
               <span className="text-xs font-bold uppercase">{i18n.language === 'es' ? 'EN' : 'ES'}</span>
             </button>
             <div className="flex space-x-3 lg:space-x-4">
-              <a href="https://www.linkedin.com/company/zenbyte-agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="LinkedIn"><Linkedin size={18} /></a>
-              <a href="https://wa.me/5491170670047" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="WhatsApp"><MessageCircle size={18} /></a>
-              <a href="https://www.instagram.com/zenbyte_agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
+              <a href="https://www.linkedin.com/company/zenbyte-agency/" target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="LinkedIn"><Linkedin size={18} /></a>
+              <a href="https://wa.me/5491170670047" target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="WhatsApp"><MessageCircle size={18} /></a>
+              <a href="https://www.instagram.com/zenbyte_agency/" target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
             </div>
             <Link to="/contact" className="px-4 lg:px-6 py-2 border border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF] hover:text-black transition-all duration-300 text-[10px] lg:text-sm font-bold uppercase tracking-wider whitespace-nowrap">
               {t('navbar.chat')}
@@ -65,13 +76,19 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center space-x-4">
             <button 
+              onClick={toggleTheme}
+              className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors"
+            >
+              {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
+            </button>
+            <button 
               onClick={toggleLanguage}
-              className="text-gray-400 hover:text-[#00E5FF] transition-colors flex items-center space-x-1"
+              className="text-gray-500 dark:text-gray-400 hover:text-[#00E5FF] transition-colors flex items-center space-x-1"
             >
               <Globe size={24} />
               <span className="text-xs font-bold uppercase">{i18n.language === 'es' ? 'EN' : 'ES'}</span>
             </button>
-            <button onClick={toggleMenu} className="text-gray-300 hover:text-white">
+            <button onClick={toggleMenu} className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white">
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -83,13 +100,13 @@ export default function Navbar() {
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="lg:hidden bg-black border-b border-white/10"
+          className="lg:hidden bg-white dark:bg-black border-b border-gray-200 dark:border-white/10"
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link to="/" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">{t('navbar.home')}</Link>
-            <Link to="/team" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">{t('navbar.team')}</Link>
-            <Link to="/services" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">{t('navbar.services')}</Link>
-            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5">{t('footer.contact')}</Link>
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">{t('navbar.home')}</Link>
+            <Link to="/team" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">{t('navbar.team')}</Link>
+            <Link to="/services" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">{t('navbar.services')}</Link>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">{t('footer.contact')}</Link>
           </div>
         </motion.div>
       )}

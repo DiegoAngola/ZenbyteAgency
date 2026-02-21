@@ -47,13 +47,13 @@ export default function Team() {
   ];
 
   return (
-    <section id="team" className="py-32 bg-zinc-950 min-h-screen">
+    <section id="team" className="py-32 bg-gray-50 dark:bg-zinc-950 min-h-screen transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">
             {t('team.section_title')}
           </h2>
-          <p className="text-gray-400">{t('team.subtitle')}</p>
+          <p className="text-gray-600 dark:text-gray-400">{t('team.subtitle')}</p>
         </div>
 
         {/* IMPORTANTE: 'items-start' es lo que evita que todas las tarjetas 
@@ -63,13 +63,13 @@ export default function Team() {
           {team.map((member, index) => (
             <div 
               key={index} 
-              className="bg-black border border-white/5 p-6 text-center group hover:border-[#00E5FF]/50 transition-all duration-300 flex flex-col items-center"
+              className="bg-white dark:bg-black border border-gray-200 dark:border-white/5 p-6 text-center group hover:border-[#00E5FF]/50 transition-all duration-300 flex flex-col items-center shadow-sm dark:shadow-none"
             >
               <div className="relative w-32 h-32 mx-auto mb-6">
                 <img 
                   src={member.img} 
                   alt={member.name} 
-                  className="w-full h-full object-cover rounded-full border-2 border-gray-800 group-hover:border-[#00E5FF] transition-colors duration-300 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover rounded-full border-2 border-gray-200 dark:border-gray-800 group-hover:border-[#00E5FF] transition-colors duration-300 grayscale group-hover:grayscale-0"
                   referrerPolicy="no-referrer"
                 />
                 <a 
@@ -84,7 +84,7 @@ export default function Team() {
               </div>
 
               <div className="w-full">
-                <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white">{member.name}</h3>
                 <p className="text-[#00E5FF] text-sm font-medium mb-3">{member.role}</p>
                 
                 <div className="relative">
@@ -94,14 +94,14 @@ export default function Team() {
                     animate={{ height: expandedMembers[index] ? 'auto' : '4.5rem' }} // '4.5rem' equivale a ~3 líneas
                     className="overflow-hidden"
                   >
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                       {member.desc}
                     </p>
                   </motion.div>
                   
                   <button 
                     onClick={() => toggleMember(index)}
-                    className="text-[#00E5FF] text-xs font-bold uppercase tracking-wider flex items-center justify-center hover:text-white transition-colors mt-4 mx-auto"
+                    className="text-[#00E5FF] text-xs font-bold uppercase tracking-wider flex items-center justify-center hover:text-black dark:hover:text-white transition-colors mt-4 mx-auto"
                   >
                     {expandedMembers[index] ? (
                       <>

@@ -52,10 +52,10 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-32 bg-black min-h-screen">
+    <section id="services" className="py-32 bg-white dark:bg-black min-h-screen transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">{t('services.section_title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">{t('services.section_title')}</h2>
           <div className="w-24 h-1 bg-[#00E5FF] mx-auto"></div>
         </div>
 
@@ -64,18 +64,18 @@ export default function Services() {
             <motion.div 
               key={index}
               whileHover={{ y: -10 }}
-              className={`bg-white/5 p-8 border-t-4 ${service.borderColor} hover:bg-white/10 transition-all duration-300 group`}
+              className={`bg-gray-50 dark:bg-white/5 p-8 border-t-4 ${service.borderColor} hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-300 group shadow-sm dark:shadow-none`}
             >
-              <div className="mb-6 bg-black/50 w-16 h-16 flex items-center justify-center rounded-full group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-6 bg-white dark:bg-black/50 w-16 h-16 flex items-center justify-center rounded-full group-hover:scale-110 transition-transform duration-300 shadow-sm dark:shadow-none border border-gray-100 dark:border-transparent">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 font-display">{service.title}</h3>
-              <p className="text-gray-400 leading-relaxed text-sm mb-4">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 font-display">{service.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm mb-4">
                 {service.desc}
               </p>
               <ul className="space-y-2">
                 {service.details.map((detail, idx) => (
-                  <li key={idx} className="text-gray-500 text-sm flex items-start">
+                  <li key={idx} className="text-gray-500 dark:text-gray-500 text-sm flex items-start">
                     <span className="mr-2 text-[#00E5FF]">•</span>
                     {detail}
                   </li>

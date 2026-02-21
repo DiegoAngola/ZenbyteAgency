@@ -41,7 +41,7 @@ ${mensaje}`;
   };
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden min-h-screen flex items-center">
+    <section id="contact" className="py-32 relative overflow-hidden min-h-screen flex items-center bg-gray-50 dark:bg-black transition-colors duration-300">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#00E5FF]/5 to-transparent pointer-events-none"></div>
 
@@ -49,14 +49,14 @@ ${mensaje}`;
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <div>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">{t('contact.title')}</h2>
-            <p className="text-xl text-gray-400 mb-8 font-light">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-gray-900 dark:text-white">{t('contact.title')}</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 font-light">
               {t('contact.subtitle')}
             </p>
             
             <div className="space-y-6">
-              <div className="flex items-center space-x-4 text-gray-300">
-                <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-lg border border-white/10">
+              <div className="flex items-center space-x-4 text-gray-700 dark:text-gray-300">
+                <div className="w-12 h-12 bg-white dark:bg-white/5 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none">
                   <MapPin className="text-[#00E5FF]" />
                 </div>
                 <div>
@@ -65,8 +65,8 @@ ${mensaje}`;
                 </div>
               </div>
               
-              <div className="flex items-center space-x-4 text-gray-300">
-                <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-lg border border-white/10">
+              <div className="flex items-center space-x-4 text-gray-700 dark:text-gray-300">
+                <div className="w-12 h-12 bg-white dark:bg-white/5 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none">
                   <Phone className="text-[#00E5FF]" />
                 </div>
                 <div>
@@ -75,8 +75,8 @@ ${mensaje}`;
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 text-gray-300">
-                <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-lg border border-white/10">
+              <div className="flex items-center space-x-4 text-gray-700 dark:text-gray-300">
+                <div className="w-12 h-12 bg-white dark:bg-white/5 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none">
                   <Mail className="text-[#00E5FF]" />
                 </div>
                 <div>
@@ -88,7 +88,7 @@ ${mensaje}`;
           </div>
 
           {/* White Box Form */}
-          <div className="bg-white text-black p-8 md:p-10 shadow-2xl rounded-sm">
+          <div className="bg-white text-black p-8 md:p-10 shadow-xl dark:shadow-2xl rounded-sm border border-gray-100 dark:border-transparent">
             <h3 className="text-2xl font-bold mb-6 font-display">{t('contact.form.title')}</h3>
             <form onSubmit={handleWhatsAppSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
