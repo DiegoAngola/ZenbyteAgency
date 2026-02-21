@@ -77,6 +77,7 @@ export default function Team() {
                   target="_blank"
                   rel="noopener noreferrer" 
                   className="absolute bottom-0 right-0 bg-[#00E5FF] p-1.5 rounded-full text-black hover:bg-white transition-colors"
+                  aria-label={`LinkedIn profile of ${member.name}`}
                 >
                   <Linkedin size={14} />
                 </a>

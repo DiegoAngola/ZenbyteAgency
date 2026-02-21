@@ -53,9 +53,9 @@ export default function Navbar() {
               <span className="text-xs font-bold uppercase">{i18n.language === 'es' ? 'EN' : 'ES'}</span>
             </button>
             <div className="flex space-x-3 lg:space-x-4">
-              <a href="https://www.linkedin.com/company/zenbyte-agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><Linkedin size={18} /></a>
-              <a href="https://wa.me/5491170670047" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><MessageCircle size={18} /></a>
-              <a href="https://www.instagram.com/zenbyte_agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors"><Instagram size={18} /></a>
+              <a href="https://www.linkedin.com/company/zenbyte-agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="LinkedIn"><Linkedin size={18} /></a>
+              <a href="https://wa.me/5491170670047" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="WhatsApp"><MessageCircle size={18} /></a>
+              <a href="https://www.instagram.com/zenbyte_agency/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00E5FF] transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
             </div>
             <Link to="/contact" className="px-4 lg:px-6 py-2 border border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF] hover:text-black transition-all duration-300 text-[10px] lg:text-sm font-bold uppercase tracking-wider whitespace-nowrap">
               {t('navbar.chat')}
